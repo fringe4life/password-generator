@@ -4,9 +4,12 @@
     <script src="index.js" type="module"></script>
   </head>
   <body>
-    <section class="wrapper">
-      <h1>Generate a <span>random password</span></h1>
-      <h2>Never use an insecure password again.</h2>
+    <section class="wrapper" id="input">
+      <header>
+        <h1>Generate a </h1>
+        <h1 class="green">random password</h1>
+        <h2>Never use an insecure password again.</h2>
+      </header>
 
       <form id="passwordForm">
         <label for="length">Password Length:</label>
@@ -19,26 +22,26 @@
           value="15"
           step="1"
           required />
+        <div class="checkboxes">
+          <label for="uppercase">Include Uppercase Letters:</label>
+          <input type="checkbox" id="uppercase" name="uppercase" checked />
 
-        <label for="uppercase">Include Uppercase Letters:</label>
-        <input type="checkbox" id="uppercase" name="uppercase" checked />
+          <label for="lowercase">Include Lowercase Letters:</label>
+          <input type="checkbox" id="lowercase" name="lowercase" checked />
 
-        <label for="lowercase">Include Lowercase Letters:</label>
-        <input type="checkbox" id="lowercase" name="lowercase" checked />
+          <label for="numbers">Include Numbers:</label>
+          <input type="checkbox" id="numbers" name="numbers" checked />
 
-        <label for="numbers">Include Numbers:</label>
-        <input type="checkbox" id="numbers" name="numbers" checked />
-
-        <label for="symbols">Include Symbols:</label>
-        <input type="checkbox" id="symbols" name="symbols" checked />
+          <label for="symbols">Include Symbols:</label>
+          <input type="checkbox" id="symbols" name="symbols" checked />
+        </div>
 
         <button type="submit">Generate Password</button>
       </form>
     </section>
-    <hr />
-    <section class="result">
-      <p id="result1"></p>
-      <p id="result2"></p>
+    <section class="wrapper" id="output">
+      <p id="result1" class="password">jnckjac87dews</p>
+      <p id="result2" class="password">02e23jcdsnkcsjn@</p>
     </section>
   </body>
 </html>

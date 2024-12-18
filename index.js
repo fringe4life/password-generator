@@ -1,8 +1,21 @@
-import { form } from './elements.js'
+import { form, symbols, length, lowercase, uppercase, numbers, passwordEls } from './elements.js'
 
-const characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?",
-  "/"];
-
+import { generatePassword } from './elementFunctions.js'
 
 
 
+
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const includeNumbers = numbers.checked;
+  const includeSymbols = symbols.checked;
+  const includeLowercase = lowercase.checked;
+  const includeUppercase = uppercase.checked;
+  const passwordLength = Number.parseInt(length.value)
+
+  // Generate a random password
+  const passwords = [generatePassword(includeLowercase, includeUppercase, includeSymbols, includeNumbers, passwordLength), generatePassword(includeLowercase, includeUppercase, includeSymbols, includeNumbers, passwordLength)]
+
+  Array.from(passwordEls).forEach((passwordEl, index) => passwordEl.textContent = passwords[index])
+})

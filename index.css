@@ -1,24 +1,141 @@
+@property --green {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #10b981;
+}
+@property --grey {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #d5d4d8;
+}
+@property --light-blue {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #273549;
+}
+
+@property --border-bottom-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #2f3e53;
+}
+@property --light-grey {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #d5d4d8;
+}
+@property --dark-blue {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #1f2937;
+}
 body {
   margin: 0;
-  padding: 10px 20px;
+  padding: 1.75em;
+  background-color: #1c1c1c;
 }
 
 .wrapper {
+  background-color: var(--dark-blue);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  color: var(--light-grey);
+  gap: 1em;
+}
+#input {
+  padding: 3em 4em 0 4em;
+}
+#output {
+  padding-bottom: 3em;
+}
+
+header {
+  grid-column: 1/-1;
+}
+
+h1 + h2 {
+  margin-top: 10px;
+}
+
+h1,
+h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-wrap: pretty;
 }
 
 h1 {
-  grid-column: 1 / -1;
+  font-family: Karla;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 40px;
+  letter-spacing: -0.025em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+h2 {
+  color: var(--grey);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.green {
+  color: var(--green);
 }
 
 form {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
+  border-bottom: 1px solid var(--border-bottom-color);
+  gap: 5px;
+  padding-bottom: 2em;
+  & > * {
+    padding: 5px 0px;
+  }
+
+  .checkboxes {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr 40px;
+    gap: 1em;
+    align-items: center;
+    text-wrap: balance;
+    & > * {
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+  }
 }
 
 button {
+  margin-top: 30px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--green);
   grid-column: 1/-1;
   place-self: center;
+}
+
+.password {
+  background-color: var(--light-blue);
+  color: var(--green);
+  padding: 8px 16px;
+  border-radius: 4px;
+  /* width: clamp(50%, 3.5em, 80%); */
+}
+#result1 {
+  place-self: end;
+}
+#result2 {
+  place-self: start;
 }
